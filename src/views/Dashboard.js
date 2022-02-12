@@ -25,6 +25,7 @@ const Dashboard = () => {
 
     return (
         <ViewWrapper>
+            <p>to jest branch searchUsers</p>
             <nav>
                 {groups.map((group) => (
                     <Link key={group} to={`/group/${group}`}>
