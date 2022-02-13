@@ -36,7 +36,6 @@ const NewsSection = () => {
                 },
                 {
                     headers: {
-                        // nie działa zmienna env tylko w tym miejscu idk
                         authorization: `Bearer a137f976a98a60baaef349b36d4599`,
                     },
                 }
