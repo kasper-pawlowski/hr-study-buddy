@@ -6,19 +6,19 @@ import { Title } from 'components/atoms/Title/Title';
 import { useStudents } from 'hooks/useStudents';
 
 const StudentsList = () => {
-  const { id } = useParams();
-  const { students } = useStudents({ groupId: id });
+    const { id } = useParams();
+    const { students } = useStudents({ groupId: id });
 
-  return (
-    <>
-      <Title>Students list</Title>
-      <StyledList>
-        {students.map((userData) => (
-          <StudentsListItem key={userData.name} userData={userData} />
-        ))}
-      </StyledList>
-    </>
-  );
+    return (
+        <>
+            <Title>Students list</Title>
+            <StyledList>
+                {students.map((userData) => (
+                    <StudentsListItem key={userData.name} userData={userData} />
+                ))}
+            </StyledList>
+        </>
+    );
 };
 
 export default StudentsList;

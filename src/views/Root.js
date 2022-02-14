@@ -8,25 +8,25 @@ import MainTemplate from 'components/templates/MainTemplate/MainTemplate';
 import Dashboard from 'views/Dashboard';
 
 const Root = () => {
-  return (
-    <Router>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <MainTemplate>
-          <Wrapper>
-            <Switch>
-              <Route exact path="/">
-                <Redirect to="/group" />
-              </Route>
-              <Route path="/group/:id?">
-                <Dashboard />
-              </Route>
-            </Switch>
-          </Wrapper>
-        </MainTemplate>
-      </ThemeProvider>
-    </Router>
-  );
+    return (
+        <Router>
+            <ThemeProvider theme={theme}>
+                <GlobalStyle />
+                <MainTemplate>
+                    <Wrapper>
+                        <Switch>
+                            <Route exact path="/">
+                                <Redirect to="/group" />
+                            </Route>
+                            <Route path="/group/:id?">
+                                <Dashboard />
+                            </Route>
+                        </Switch>
+                    </Wrapper>
+                </MainTemplate>
+            </ThemeProvider>
+        </Router>
+    );
 };
 
 export default Root;

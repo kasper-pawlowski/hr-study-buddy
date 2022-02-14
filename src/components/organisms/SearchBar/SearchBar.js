@@ -1,5 +1,5 @@
 import { Input } from 'components/atoms/Input/Input';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import debounce from 'lodash.debounce';
 import { SearchBarWrapper, SearchResults, SearchWrapper, StatusInfo } from 'components/organisms/SearchBar/SearchBar.styles';
 import { useStudents } from 'hooks/useStudents';
