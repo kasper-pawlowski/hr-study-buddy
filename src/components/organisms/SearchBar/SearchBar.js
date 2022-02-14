@@ -1,9 +1,9 @@
 import { Input } from 'components/atoms/Input/Input';
 import React, { useState } from 'react';
 import debounce from 'lodash.debounce';
-import { SearchBarWrapper, SearchResults, SearchWrapper, StatusInfo } from 'components/organisms/SearchBar/SearchBar.styles';
-import { useStudents } from 'hooks/useStudents';
 import { useCombobox } from 'downshift';
+import { SearchBarWrapper, SearchResults, SearchResultsItem, SearchWrapper, StatusInfo } from 'components/organisms/SearchBar/SearchBar.styles';
+import { useStudents } from 'hooks/useStudents';
 
 export const SearchBar = () => {
     const [matchingStudents, setMatchingStudents] = useState([]);
@@ -14,11 +14,10 @@ export const SearchBar = () => {
         setMatchingStudents(students);
     }, 500);
 
-    const { isOpen, getToggleButtonProps, getLabelProps, getMenuProps, getInputProps, getComboboxProps, highlightedIndex, getItemProps } =
-        useCombobox({
-            items: matchingStudents,
-            onInputValueChange: getMatchingStudents,
-        });
+    const { isOpen, getMenuProps, getInputProps, getComboboxProps, highlightedIndex, getItemProps } = useCombobox({
+        items: matchingStudents,
+        onInputValueChange: getMatchingStudents,
+    });
 
     return (
         <SearchBarWrapper>
@@ -29,18 +28,16 @@ export const SearchBar = () => {
                 </p>
             </StatusInfo>
             <SearchWrapper {...getComboboxProps()}>
-                <Input {...getInputProps()} name="Search" id="Search" />
-                <SearchResults {...getMenuProps()}>
+                <Input {...getInputProps()} name="Search" id="Search" placeholder="Search" />
+                <SearchResults isVisible={isOpen && matchingStudents.length > 0} {...getMenuProps()}>
                     {isOpen &&
                         matchingStudents.map((item, index) => (
-                            <li {...getItemProps({ item, index })} key={item.id}>
+                            <SearchResultsItem isHighlighted={highlightedIndex === index} {...getItemProps({ item, index })} key={item.id}>
                                 {item.name}
-                            </li>
+                            </SearchResultsItem>
                         ))}
                 </SearchResults>
             </SearchWrapper>
         </SearchBarWrapper>
     );
 };
-
-//16
