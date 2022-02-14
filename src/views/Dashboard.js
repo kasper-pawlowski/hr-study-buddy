@@ -35,7 +35,6 @@ const Dashboard = () => {
             <GroupWrapper>
                 <StudentsList />
             </GroupWrapper>
-            <p>downshift</p>
         </Wrapper>
     );
 };
