@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { useCallback } from 'react';
+import axios from 'axios';
 
 export const useStudents = () => {
     const getGroups = useCallback(async () => {
@@ -32,8 +32,8 @@ export const useStudents = () => {
     };
 
     return {
-        getStudents,
         getGroups,
+        getStudents,
         findStudents,
     };
 };
