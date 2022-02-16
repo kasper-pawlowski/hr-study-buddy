@@ -30,7 +30,7 @@ const NewsSection = () => {
                 },
                 {
                     headers: {
-                        authorization: `Bearer a137f976a98a60baaef349b36d4599`,
+                        authorization: `Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}`,
                     },
                 }
             )
